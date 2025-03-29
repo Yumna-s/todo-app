@@ -9,12 +9,7 @@ export const TodoWrapperLocalStorage = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const savedTodos =
-      JSON.parse(
-        localStorage.getItem(
-          "todos hotnbbsdjgyfbfhebdjfejkskanbswbhfefbfsdbsbhsbsdnfsjfjfejheej"
-        )
-      ) || [];
+    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(savedTodos);
   }, []);
   const addTodo = (todo) => {
@@ -23,4 +18,16 @@ export const TodoWrapperLocalStorage = () => {
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
     ]);
   };
+  function toggleComplete(id) {
+    setTodos(
+      todos.map(function (todo) {
+        if (todo.id === id) {
+          var newTodo = Object.assign({}, todo);
+          newTodo.completed = !newTodo.completed;
+          return newTodo;
+        }
+        return todo;
+      })
+    );
+  }
 };
