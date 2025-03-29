@@ -1,11 +1,12 @@
-import { useState } from "react";
 import "./App.css";
-import TodoWrapper from "./components/TodoWrapper";
 
 function App() {
   return (
     <div className="App">
-      <TodoWrapper />
+      <h1 style={{ color: "white" }}>My Todo App</h1>
+      <div className="TodoWrapper">
+        <p style={{ color: "#333" }}>Your content will go here</p>
+      </div>
     </div>
   );
 }
