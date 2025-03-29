@@ -1,3 +1,9 @@
+## Known Issues
+
+- The app is not running correctly on the local server (localhost:3000).
+- Despite following the setup instructions and troubleshooting steps, the app returns a 404 error.
+- Attempts to resolve the issue with Vite and dependencies were unsuccessful due to permission issues and configuration problems.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
