@@ -1,8 +1,7 @@
-## Known Issues
+## Import Error with TodoWrapper.jsx
 
-- The app is not running correctly on the local server (localhost:3000).
-- Despite following the setup instructions and troubleshooting steps, the app returns a 404 error.
-- Attempts to resolve the issue with Vite and dependencies were unsuccessful due to permission issues and configuration problems.
+Problem:
+When trying to run the project after renaming TodoWrapper.js to TodoWrapper.jsx, an import error occurs in the browser, and the component cannot be loaded properly.
 
 # React + Vite
 
