@@ -18,18 +18,13 @@ export const TodoWrapperLocalStorage = () => {
       { id: uuidv4(), task: todo, completed: false, isEditing: false },
     ]);
   };
-  function toggleComplete(id) {
+  const toggleComplete = (id) => {
     setTodos(
-      todos.map(function (todo) {
-        if (todo.id === id) {
-          var newTodo = Object.assign({}, todo);
-          newTodo.completed = !newTodo.completed;
-          return newTodo;
-        }
-        return todo;
-      })
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
     );
-  }
+  };
   const editTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -37,4 +32,20 @@ export const TodoWrapperLocalStorage = () => {
       )
     );
   };
+  function editTask(task, id) {
+    // Mistake 1: Forgot to spread existing todo properties
+    // Mistake 2: Incorrectly toggled isEditing twice
+    const updatedTodos = todos.map(function (todo) {
+      if (todo.id === id) {
+        return {
+          task: task, // Overwrites other todo properties
+          isEditing: !todo.isEditing, // First toggle
+          isEditing: !todo.isEditing, // Second toggle (duplicate)
+        };
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  }
 };
